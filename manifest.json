@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Lucy",
+  "description": "Browse the web hands free",
+  "version": "1.0",
+  "author": "Rohan Doshi",
+  "permissions": ["tabs", "identity", "webNavigation", "bookmarks", "downloads", "sessions"],
+  "options_page": "initialize.html",
+  "background" : {
+    "scripts": ["jquery-3.1.0.min.js", "background.js"]
+  },
+  // add an icon
+  "browser_action": {
+    "default_icon": "mic-slash.png" //,
+    //"default_popup": "popup.html"
+  },
+  "content_scripts": [
+  {
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["jquery-3.1.0.min.js", "actions.js", "parse.js"]
+  }
+  ]
+}
